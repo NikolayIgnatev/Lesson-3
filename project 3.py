@@ -4,6 +4,8 @@ from dotenv import load_dotenv
 
 
 load_dotenv()
+password = os.getenv("password")
+login = os.getenv("login")
 email_from = "Nikolay12090@mail.ru"
 email_to = "Nikolay12090@mail.ru"
 name = "Николай"
@@ -37,9 +39,7 @@ Content-Type: text/plain; charset="UTF-8";
 """.format(email_from = email_from, email_to = email_to, message  = message)
 letter = letter.encode("UTF-8")
 server = smtplib.SMTP_SSL('smtp.mail.ru:465')
-server.login("Nikolay12090@mail.ru","jCV9jXhrtGpS4H4fS402")
+server.login(login,password)
 server.sendmail(email_from, email_to, letter)
 server.quit()
 
-password = os.getenv("password")
-login = os.getenv("login")
